@@ -3,7 +3,7 @@
   publish = "dist"
   base = "project/"
 
-# Correct way to disable the plugin
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   disable = true
+  
