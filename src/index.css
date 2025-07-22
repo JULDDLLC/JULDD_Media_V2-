@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-midnight text-white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-mint via-pink to-mint bg-300% bg-clip-text text-transparent;
+  }
+  
+  .hover-gradient {
+    @apply hover:animate-gradient transition-all duration-300;
+  }
+  
+  .btn-gradient {
+    @apply bg-gradient-to-r from-mint to-pink hover:from-pink hover:to-mint transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  .card-tilt {
+    @apply transition-transform duration-300 hover:scale-105 hover:rotate-1;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+@layer utilities {
+  .bg-300% {
+    background-size: 300% 300%;
+  }
+}
+
+/* Custom animations */
+@keyframes gradient {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes glitch {
+  0% { 
+    transform: translate(0); 
+  }
+  20% { 
+    transform: translate(-5px, 5px); 
+  }
+  40% { 
+    transform: translate(-5px, -5px); 
+  }
+  60% { 
+    transform: translate(5px, 5px); 
+  }
+  80% { 
+    transform: translate(5px, -5px); 
+  }
+  100% { 
+    transform: translate(0); 
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 28, 48, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00FFB0, #FF59F8);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FF59F8, #00FFB0);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00FFB0 rgba(0, 28, 48, 0.3);
+}
